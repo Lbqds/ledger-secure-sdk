@@ -53,9 +53,6 @@
 #include "ledger_ble.h"
 #endif  // HAVE_BLE
 
-#if defined(HAVE_BAGL) || defined(HAVE_NBGL)
-#include "ux.h"
-#endif
 #include "checks.h"
 #include "lcx_sha512.h"
 
