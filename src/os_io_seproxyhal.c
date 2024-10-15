@@ -53,9 +53,6 @@
 #include "ledger_ble.h"
 #endif  // HAVE_BLE
 
-#if defined(HAVE_BAGL) || defined(HAVE_NBGL)
-#include "ux.h"
-#endif
 #include "checks.h"
 #include "lcx_sha512.h"
 
@@ -218,14 +215,6 @@ void io_seproxyhal_handle_usb_event(void) {}
 void io_seproxyhal_handle_usb_ep_xfer_event(void) {}
 
 #endif  // HAVE_L4_USBLIB
-
-#ifdef HAVE_WEBUSB
-void io_usb_send_apdu_data_ep0x83(unsigned char *buffer, unsigned short length)
-{
-    // wait for 20 events before hanging up and timeout (~2 seconds of timeout)
-    io_usb_send_ep(0x83, buffer, length, 20);
-}
-#endif  // HAVE_WEBUSB
 
 #endif  // HAVE_IO_USB
 

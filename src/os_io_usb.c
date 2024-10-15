@@ -70,6 +70,12 @@ void io_usb_send_apdu_data(unsigned char *buffer, unsigned short length)
     io_usb_send_ep(0x82, buffer, length, 20);
 }
 
+void io_usb_send_apdu_data_ep0x83(unsigned char *buffer, unsigned short length)
+{
+    // wait for 20 events before hanging up and timeout (~2 seconds of timeout)
+    io_usb_send_ep(0x83, buffer, length, 20);
+}
+
 /**
  *  Ledger Protocol
  *  HID Report Content
